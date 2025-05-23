@@ -24,7 +24,7 @@ sources:
               - name: L_ORDERKEY
                 description: Primary key of the lineitem table
                 tests:
-                  - unique:
+                  - dbt_expectations.expect_column_values_to_be_unique:
                       config:
                         severity: warn
                   - not_null
