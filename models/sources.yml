@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: tpch
-    catalog: dev_bootcamp  
+    database: dev_bootcamp  
     schema: tpch  
     tables:
       - name: orders_bronze
@@ -24,7 +24,7 @@ sources:
               - name: L_ORDERKEY
                 description: Primary key of the lineitem table
                 tests:
-                  - dbt_expectations.expect_column_values_to_be_unique:
+                  - unique:
                       config:
                         severity: warn
                   - not_null
