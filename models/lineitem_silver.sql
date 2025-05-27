@@ -1,11 +1,12 @@
 select
-    l_orderkey,
-    l_linenumber,
-    l_quantity,
-    l_extendedprice,
-    l_discount,
-    l_tax,
-    l_returnflag,
-    l_linestatus
-from {{ source("tpch", "lineitem_bronze") }}
-where l_orderkey is not null and l_shipdate >= date '1990-01-01'
+  L_ORDERKEY,
+  L_LINENUMBER,
+  L_QUANTITY,
+  L_EXTENDEDPRICE,
+  L_DISCOUNT,
+  L_TAX,
+  L_RETURNFLAG,
+  L_LINESTATUS
+from {{ source('tpch', 'lineitem_bronze') }}
+where L_ORDERKEY is not null
+and L_SHIPDATE >= date '1990-01-01'
